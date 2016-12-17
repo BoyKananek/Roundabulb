@@ -1,7 +1,12 @@
 var express = require('express');
-var bodyParse = require('body-parser');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var morgan = require('morgan');
+var passport = require('passport');
+var flash = require('connect-flash');
+
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 var app = new express();
 var port =  3000 || process.env.PORT;
@@ -10,29 +15,25 @@ var pageRouter = require('./app/routers/pageRouter');
 
 var config = require('./config/database.js');
 
-//setting database
-mongoose.connect(config.url);
+app.use('/assets', express.static(__dirname + '/public'));
 
+//config data and passport
+mongoose.connect(config.url);
+require('./config/passport')(passport);
+
+app.use(bodyParser()); // get information from html forms
+app.use(cookieParser()); // read cookies (needed for auth)
 app.use(morgan('dev'));
 
-//allow web page can access control to the api
-app.all('*', function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token');
-  // intercept OPTIONS method
-  if ('OPTIONS' == req.method) {
-    res.send(200);
-  }
-  else {
-    next();
-  }
-});
+app.use(session({secret: config.serect}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 //setting template for app
 app.set('view engine', 'ejs');
 
-app.use('/',pageRouter);
+require('./app/routers/pageRouter.js')(app,passport);
 
 app.listen(port);
 console.log('The magic happens on port ' + port);

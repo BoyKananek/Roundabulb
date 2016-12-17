@@ -13,11 +13,11 @@ module.exports = function(passport){
     });
 
     passport.use(new FacebookStrategy({
-
         // pull in our app id and secret from our auth.js file
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
-        callbackURL     : configAuth.facebookAuth.callbackURL
+        callbackURL     : configAuth.facebookAuth.callbackURL,
+        profileFields   : ['id','picture.type(large)', 'emails']
 
     },function(token,refreshToken,profile,done){
         process.nextTick(function(){
@@ -29,9 +29,9 @@ module.exports = function(passport){
                     return done(null,user);
                 }else{
                     var newUser = new User();
-                    newUser.id = profile.id;
+                    newUser.facebookid = profile.id;
                     newUser.token = token;
-                    newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
+                    newUser.name = profile.displayName
                     newUser.contact.email = profile.emails[0].value;
                     newUser.picture = profile.photos[0].value;
 
