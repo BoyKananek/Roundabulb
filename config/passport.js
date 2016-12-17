@@ -17,11 +17,11 @@ module.exports = function(passport){
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
         callbackURL     : configAuth.facebookAuth.callbackURL,
-        profileFields   : ['id','picture.type(large)', 'emails']
+        profileFields   : ['id','displayName','picture.type(large)', 'emails']
 
     },function(token,refreshToken,profile,done){
         process.nextTick(function(){
-            User.findOne({'id': profile.id},function(err,user){
+            User.findOne({'id': profile.facebookid},function(err,user){
                 if(err){
                     return done(err);
                 }

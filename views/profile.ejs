@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/assets/css/profile.css" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="https://use.fontawesome.com/81e8cf18d1.js"></script>
 </head>
 
 <body>
@@ -14,29 +15,50 @@
             <div id="logo"> <a href="/profile">Roundabulb</a> </div>
         </div>
          <ul class="nav navbar-nav float-xs-right">
-            <li><a href="/logout" style="color:#ffffff">logout</a></li>
+            <li class="nav-item"><a href="/profile" style="color:#ffffff">Profile</a></li>
+            <li class="nav-item"><a href="#" style="color:#ffffff"> Edit </a></li>
+            <li class="nav-item"><a href="/logout" style="color:#ffffff">logout</a></li>
          </ul> 
     </div>
 </nav>
     <div class="container">
         <div class="fb-profile">
-            <img align="left" class="fb-image-lg" src="http://lorempixel.com/850/280/nightlife/5/" alt="Profile image example" />
+            <img align="left" class="fb-image-lg" src="assets/img/cover2.jpg" alt="Profile image example"/>
             <img align="left" class="fb-image-profile thumbnail" src="<%= user.picture %>" alt="Profile image example"/>
             <div class="fb-profile-text">
-                <h1>Eli Macy</h1>
-                <p>Girls just wanna go fun.</p>
+                <h3><%= user.name %></h3>
+                <p> Email Address : <%= user.contact.email %></p>
             </div>
         </div>
     </div>
     <!-- /container -->
-
+    <br>
     <div class="about">
-        <div class="col-md-3">
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-10" style="background: #f6f7f9">
+                <br>
+                <h3><i class="fa fa-user" aria-hidden="true"></i>   About  </h3>
+                <br>
+            </div>
+            <div class="col-sm-1">
+            </div>
         </div>
-        <table class="table" style="border: 1px;">
-
-        </table>
-
+        <br>
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4">
+                <h4> Summary </h4>
+            </div>
+            <div class="col-sm-6">
+                <p> I am a Software Engineer who graduted from King Mongkut's Institute of Technology Ladkrabang </p>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+        
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
