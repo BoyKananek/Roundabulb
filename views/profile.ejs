@@ -38,9 +38,7 @@
             <div class="col-sm-1">
             </div>
             <div class="col-sm-10" style="background: #f6f7f9">
-                <br>
-                <h3><i class="fa fa-user" aria-hidden="true"></i>   About  </h3>
-                <br>
+                <h3><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;About</h3>
             </div>
             <div class="col-sm-1">
             </div>
@@ -53,7 +51,80 @@
                 <h4> Summary </h4>
             </div>
             <div class="col-sm-6">
-                <p> I am a Software Engineer who graduted from King Mongkut's Institute of Technology Ladkrabang </p>
+                <p> <%= user.summary %></p>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4">
+                <h4> Work </h4>
+            </div>
+            <div class="col-sm-6">
+                <p> <%= user.work %> </p>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4">
+                <h4> Education </h4>
+            </div>
+            <div class="col-sm-6">
+                <p> <%= user.education %> </p>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+         <br>
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4">
+                <h4> Places you've lived </h4>
+            </div>
+            <div class="col-sm-6">
+                <p> <%= user.place %> </p>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4">
+                <h4> Contact Information </h4>
+            </div>
+            <div class="col-sm-6">
+                <h6> Email </h6>
+                <p> <%= user.contact.email %> </p>
+                <br>
+                <h6> Mobile phone number </h6>
+                <p> <%= user.contact.mobile %> </p>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4">
+                <h4> Basic Information </h4>
+            </div>
+            <div class="col-sm-6">
+                <h6> Gender </h6>
+                <p> <%= user.basic_info.gender %> </p>
+                <br>
+                <h6> Birthdate </h6>
+                <p> <%= user.basic_info.birthdate %> </p>
             </div>
             <div class="col-sm-1">
             </div>
