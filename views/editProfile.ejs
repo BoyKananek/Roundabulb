@@ -100,6 +100,7 @@
 </div>
 <div class="form-group">
     <label> Birthdate </label>
+    <!-- find the way to add datepicker  -->
     <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="birthdate" id="datepick" value="<%= user.basic_info.birthdate %>">
 
 </div>
@@ -118,6 +119,7 @@
         return re.test(email);
     }
     function validateForm() {
+        // problem with check empty input
         var email = document.getElementById("email").value;
         var mobile = document.getElementById("mobile").value;
         var education = document.getElementById("education").value;
