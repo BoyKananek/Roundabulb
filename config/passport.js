@@ -21,24 +21,30 @@ module.exports = function(passport){
 
     },function(token,refreshToken,profile,done){
         process.nextTick(function(){
-            User.findOne({'id': profile.facebookid},function(err,user){
+            User.findOne({'facebookid': profile.id},function(err,user){
                 if(err){
+                    console.log("Error prone");
                     return done(err);
                 }
                 if(user){
+                    console.log('Found user');
                     return done(null,user);
                 }else{
+                    console.log("Not found user ");
                     var newUser = new User();
                     newUser.facebookid = profile.id;
                     newUser.token = token;
                     newUser.name = profile.displayName
-                    newUser.contact.email = profile.emails[0].value;
+                    if(profile.emails != undefined){
+                        newUser.contact.email = profile.emails[0].value;
+                    }
                     newUser.picture = profile.photos[0].value;
 
                     newUser.save(function(err){
                         if(err){
                             throw err;
                         }
+                        console.log("Save user!");
                         return done(null,newUser);
                     });
                 }

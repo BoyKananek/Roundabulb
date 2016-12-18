@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <title> Personal Profile Editable </title>
+    <link rel="stylesheet" href="/assets/css/profile.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi"
+        crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="https://use.fontawesome.com/81e8cf18d1.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" style="background: #45619D">
+<div class="container-fluid">
+    <div class="navbar-header">
+        <div id="logo"> <a href="/profile">Roundabulb</a> </div>
+    </div>
+    <ul class="nav navbar-nav float-xs-right">
+        <li class="nav-item">
+            <a href="/profile" style="color:#ffffff">Profile</a>
+</li>
+<li class="nav-item">
+    <a href="/edit/profile" style="color:#ffffff"> Edit </a>
+</li>
+<li class="nav-item">
+    <a href="/logout" style="color:#ffffff">logout</a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="container">
+    <div class="fb-profile">
+        <img align="left" class="fb-image-lg" src="../assets/img/cover2.jpg" alt="Profile image example" />
+        <img align="left" class="fb-image-profile thumbnail" src="<%= user.picture %>" alt="Profile image example" />
+        <div class="fb-profile-text">
+            <h3>
+                <%= user.name %>
+            </h3>
+            <p> Email Address :
+                <%= user.contact.email %>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- /container -->
+<br>
+<div class="about">
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10" style="background: #f6f7f9">
+<h3><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Edit Profile</h3>
+</div>
+<div class="col-sm-1">
+</div>
+</div>
+<br>
+<div class="profile">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+        <form action="/api/update" method="post" onsubmit="return validateForm();">
+<div class="form-group">
+    <label> Display name </label>
+    <input type="text" class="form-control" name="name" value="<%= user.name %>" readonly/>
+</div>
+<div class="form-group">
+    <label> Facebook ID </label>
+    <input type="text" class="form-control" name="id" value="<%= user.facebookid %>" readonly/>
+</div>
+<div class="form-group">
+    <label> Summary </label>
+    <input type="text" class="form-control" name="summary" value="<%= user.summary %>">
+</div>
+<div class="form-group">
+    <label> Work </label>
+    <textarea type="text" class="form-control" name="work" value="<%= user.work %>"></textarea>
+</div>
+<div class="form-group">
+    <label> Education </label>
+    <textarea type="text" class="form-control" name="education" value="<%= user.education %>"></textarea>
+</div>
+<div class="form-group">
+    <label> Places you've lived </label>
+    <textarea type="text" class="form-control" name="place" value="<%= user.place %>"></textarea>
+</div>
+<div class="form-group">
+    <label> Email  </label>
+    <input type="text" class="form-control" name="email" value="<%= user.contact.email %>">
+</div>
+<div class="form-group">
+    <label> Mobile phone </label>
+    <input type="text" class="form-control" name="mobile" value="<%= user.contact.mobile %>">
+</div>
+<div class="form-group">
+    <label> Gender </label>
+    <select class="form-control" id="gender" value="<%= user.basic_info.gender %>"> 
+                    <option>Male</option>
+                    <option>Female</option>
+                 </select>
+</div>
+<div class="form-group">
+    <label> Birthdate </label>
+    <input type="text" class="form-control" name="birthdate" value="<%= user.basic_info.birthdate %>">
+</div>
+<center>
+    <button type="submit" class="btn btn-lg" style="background:#45619D; color: #ffffff">Confirm</button>
+</center>
+</form>
+</div>
+<div class="col-sm-1">
+</div>
+</div>
+</body>
+<script>
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+    function validateForm() {
+        var email = document.getElementById("email").value;
+        var mobile = document.getElementById("mobile").value;
+        if (validateEmail(email) && mobile != ""){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK"
+    crossorigin="anonymous"></script>
+
+</html>
