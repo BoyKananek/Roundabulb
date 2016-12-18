@@ -27,7 +27,7 @@
             <img align="left" class="fb-image-profile thumbnail" src="<%= user.picture %>" alt="Profile image example"/>
             <div class="fb-profile-text">
                 <h3><%= user.name %></h3>
-                <p> Email Address : <%= user.contact.email %></p>
+                <p> <%= user.summary %></p>
             </div>
         </div>
     </div>
@@ -103,10 +103,10 @@
                 <h4> Contact Information </h4>
             </div>
             <div class="col-sm-6">
-                <h6> Email </h6>
+                <h6> <strong>Email</strong> </h6>
                 <p> <%= user.contact.email %> </p>
                 <br>
-                <h6> Mobile phone number </h6>
+                <h6> <strong>Mobile phone number</strong> </h6>
                 <p> <%= user.contact.mobile %> </p>
             </div>
             <div class="col-sm-1">
@@ -120,10 +120,10 @@
                 <h4> Basic Information </h4>
             </div>
             <div class="col-sm-6">
-                <h6> Gender </h6>
+                <h6> <strong>Gender</strong> </h6>
                 <p> <%= user.basic_info.gender %> </p>
                 <br>
-                <h6> Birthdate </h6>
+                <h6> <strong>Birthdate</strong> </h6>
                 <p> <%= user.basic_info.birthdate %> </p>
             </div>
             <div class="col-sm-1">
