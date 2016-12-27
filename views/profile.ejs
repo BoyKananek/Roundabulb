@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" style="background: #45619D">
+<nav class="navbar navbar-default navbar-fixed-top" style="background: #1D456E">
     <div class="container-fluid">
         <div class="navbar-header">
             <div id="logo"> <a href="/profile">Roundabulb</a> </div>
@@ -26,8 +26,8 @@
             <img align="left" class="fb-image-lg" src="assets/img/cover2.jpg" alt="Profile image example"/>
             <img align="left" class="fb-image-profile thumbnail" src="<%= user.picture %>" alt="Profile image example"/>
             <div class="fb-profile-text">
-                <h3><%= user.name %></h3>
-                <p> <%= user.summary %></p>
+                <h2><%= user.name %></h2>
+                <h4> <%= user.summary %></h4>
             </div>
         </div>
     </div>
@@ -87,7 +87,7 @@
             <div class="col-sm-1">
             </div>
             <div class="col-sm-4">
-                <h4> Places you've lived </h4>
+                <h4> Address </h4>
             </div>
             <div class="col-sm-6">
                 <p> <%= user.place %> </p>
@@ -123,7 +123,7 @@
                 <h6> <strong>Gender</strong> </h6>
                 <p> <%= user.basic_info.gender %> </p>
                 <br>
-                <h6> <strong>Birthdate</strong> </h6>
+                <h6> <strong>Birthday</strong> </h6>
                 <p> <%= user.basic_info.birthdate %> </p>
             </div>
             <div class="col-sm-1">
