@@ -13,7 +13,7 @@
     <div id="logo"> <a href="/">Roundabulb</a> </div>
     <div id="header-main-right">
       <div id="header-main-right-nav">
-        <!--
+        
         <form method="post" action="" id="login_form" name="login_form">
           <table border="0" style="border:none">
             <tr>
@@ -28,7 +28,7 @@
               <td><label><a href="" style="color:#ccc; text-decoration:none">forgot your password?</a></label></td>
             </tr>
           </table>
-        </form>  -->
+        </form>  
       </div>
     </div>
   </div>
@@ -43,8 +43,8 @@
     <br><br>
     <!--loginheader-->
     <div class="loginform">
-      <form id="login" action="/auth/facebook" method="post">
-      <!--
+      <form id="login" action="/" method="post">
+      
         <p>
           <input type="text" id="firstname" name="firstname" placeholder="First Name" value="" class="radius mini" />
           <input type="text" id="lastname" name="lastname" placeholder="Last Name" value="" class="radius mini" />
@@ -57,16 +57,21 @@
         </p>
         <p>
           <input type="password" id="password" name="password" placeholder="New Password" class="radius" />
-        </p>  -->
+        </p> 
         <p>
-          <button class="radius title">Login with Facebook</button>
+          <button class="radius title">Sign up</button>
         </p>
       </form>
     </div>
     <!--loginform-->
+    <center> <p style="color:#8E989E;"> or  </p></center>
+    <form action='/auth/facebook' method="post">
+      <center> <button class="radius title">Login with facebook</button> </center>
+    </form>
   </div>
   <!--loginboxinner-->
 </div>
 <!--loginbox-->
+
 </body>
 </html>
