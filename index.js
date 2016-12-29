@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 var app = new express();
-var port =  3000 || process.env.PORT;
+var port =  process.env.PORT || 3000;
 
 var pageRouter = require('./app/routers/pageRouter');
 

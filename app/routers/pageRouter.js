@@ -16,6 +16,12 @@ module.exports = function (app, passport) {
         });
     })
     
+    /*app.get('/profile/complete',isLoggedIn,function(req,res){
+        res.render('congrat.ejs',{
+            user: req.user
+        });
+    }); */
+    
     app.post('/api/update',isLoggedIn,function(req,res){
         User.findOne({'facebookid':req.body.id},function(err,result){
             if(err){
